@@ -12,7 +12,7 @@ namespace RetroMusicSite.WebUI
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Audio", id = UrlParameter.Optional }
+                defaults: new { controller = "Music", action = "Audio", id = UrlParameter.Optional }
             );
         }
     }

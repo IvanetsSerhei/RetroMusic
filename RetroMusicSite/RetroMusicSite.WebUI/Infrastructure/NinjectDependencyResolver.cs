@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Ninject;
+using RetroMusicSite.Domain.Abstract;
+using RetroMusicSite.Domain.Concrete;
 
 namespace RetroMusicSite.WebUI.Infrastructure
 {
@@ -27,7 +29,7 @@ namespace RetroMusicSite.WebUI.Infrastructure
 
         private void AddBindings()
         {
-
+            _kernel.Bind<IRepository>().To<EfRepository>();
         }
     }
 }
