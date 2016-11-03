@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Concrete\EfDbContext.cs" />
     <Compile Include="Entities\Artist.cs" />
     <Compile Include="Entities\Audio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
