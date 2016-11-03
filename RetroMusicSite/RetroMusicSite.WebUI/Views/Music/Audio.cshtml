@@ -1,14 +1,18 @@
-﻿@using RetroMusicSite.Domain.Entities
-@model IEnumerable<Audio>
+﻿@using RetroMusicSite.WebUI.Models
+@using RetroMusicSite.WebUI.HtmlHelpers
+
+@model  AudioViewModels
 
 @{
     ViewBag.Title = "Аудиозаписи";
 }
 
-@foreach (var p in @Model)
+@foreach (var p in @Model.Audios)
 {
     <div>
         <h3>@p.ArtistName - @p.Name</h3>        
     </div>
 }
-
+<div>  
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Audio", new {page = x}))
+</div>

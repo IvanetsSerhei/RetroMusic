@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using RetroMusicSite.Domain.Abstract;
+using RetroMusicSite.WebUI.Models;
 
 namespace RetroMusicSite.WebUI.Controllers
 {
@@ -15,10 +16,20 @@ namespace RetroMusicSite.WebUI.Controllers
         }
         public ViewResult Audio(int page=1)
         {
-            return View(_repository.Audios
+            AudioViewModels model = new AudioViewModels
+            {
+               Audios = _repository.Audios
                 .OrderBy(audio=> audio.AudioId)
                 .Skip((page -1) * pageSizeAudio)
-                .Take(pageSizeAudio));
+                .Take(pageSizeAudio),
+               PagingInfo = new PagingInfo
+               {
+                   CurrentPage = page,
+                   ItemsPerPage = pageSizeAudio,
+                   TotalItems = _repository.Audios.Count()
+               }
+            };
+            return View(model);
         }
 
     }

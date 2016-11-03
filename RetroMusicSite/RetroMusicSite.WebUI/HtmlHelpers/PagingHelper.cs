@@ -5,9 +5,9 @@ using RetroMusicSite.WebUI.Models;
 
 namespace RetroMusicSite.WebUI.HtmlHelpers
 {
-    public class PagingHelper
+    public static class PagingHelper
     {
-        public static MvcHtmlString PageLinks(HtmlHelper html,
+        public static MvcHtmlString PageLinks(this HtmlHelper html,
             PagingInfo pagingInfo, Func<int, string> pageUrl)
         {
             StringBuilder result = new StringBuilder();
