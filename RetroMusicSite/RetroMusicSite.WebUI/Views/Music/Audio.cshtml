@@ -1,8 +1,14 @@
-﻿@model RetroMusicSite.Domain.Entities.Audio
+﻿@using RetroMusicSite.Domain.Entities
+@model IEnumerable<Audio>
 
 @{
-    ViewBag.Title = "Audio";
+    ViewBag.Title = "Аудиозаписи";
 }
 
-<h2>Audio</h2>
+@foreach (var p in @Model)
+{
+    <div>
+        <h3>@p.ArtistName - @p.Name</h3>        
+    </div>
+}
 
