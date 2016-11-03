@@ -1,5 +1,7 @@
 ﻿@model RetroMusicSite.Domain.Entities.Audio
 
-<div class="table">
-    <strong>@Model.ArtistName - @Model.Name</strong>
-</div>
+<li>
+    <a href="#" data-src="@Model.Url">
+        <strong>@Model.ArtistName - @Model.Name</strong>
+    </a>
+</li>

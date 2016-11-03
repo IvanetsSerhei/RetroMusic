@@ -8,7 +8,7 @@ namespace RetroMusicSite.WebUI.Controllers
     public class MusicController : Controller
     {
         private IRepository _repository;
-        public int pageSizeAudio = 50; 
+        public int pageSizeAudio = 35; 
 
         public MusicController(IRepository repository)
         {

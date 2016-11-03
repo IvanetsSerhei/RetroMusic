@@ -7,10 +7,21 @@
     ViewBag.Title = "Аудиозаписи";
 }
 
-@foreach (var audio in @Model.Audios)
-{
-   @Html.Partial("AudioSummary",audio)
-}
+<link href="~/Content/Index.css" rel="stylesheet" />
+<script src="~/Scripts/audiojs/jquery.js"></script>
+<script src="~/Scripts/audiojs/audio.min.js"></script>
+<script src="~/Scripts/audiojs/audioPlayerLoad.js"></script>
+
+<div class="table" id="wrapper">
+    <audio preload="auto"></audio>
+    <ol>
+        @foreach (var audio in @Model.Audios)
+        {
+            @Html.Partial("AudioSummary", audio)
+        }
+    </ol>
+</div>
+
 <div class="btn-group pull-right">
     @Html.PageLinks(Model.PagingInfo, x => Url.Action("Audio", new { page = x }))
 </div>
