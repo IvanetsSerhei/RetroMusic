@@ -152,6 +152,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Music\Audio.cshtml" />
+    <Content Include="Views\Shared\AudioSummary.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -7,12 +7,10 @@
     ViewBag.Title = "Аудиозаписи";
 }
 
-@foreach (var p in @Model.Audios)
+@foreach (var audio in @Model.Audios)
 {
-    <div>
-        <h3>@p.ArtistName - @p.Name</h3>        
-    </div>
+   @Html.Partial("AudioSummary",audio)
 }
-<div>  
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Audio", new {page = x}))
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Audio", new { page = x }))
 </div>
