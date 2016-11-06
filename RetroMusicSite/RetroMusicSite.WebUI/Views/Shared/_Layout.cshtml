@@ -13,10 +13,10 @@
         <a class="navbar-brand" href="#">MusicRetroSite - ретро музыка и ремиксы</a>
     </div>
     <div class="row panel">
-        <div id="artists" class="col-xs-3">
-            Сюда добавим контент позже
+        <div id="categories" class="col-xs-2">
+           @Html.Action("Menu", "Music")
         </div>
-        <div class="col-xs-8">
+        <div class="col-xs-9">
             @RenderBody()
         </div>
     </div>
