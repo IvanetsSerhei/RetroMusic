@@ -13,13 +13,13 @@ namespace RetroMusicSite.WebUI.Controllers
         private IRepository _repository;
 
         public int pageSizeAudio = 35;
-        public int pageSizeArtist = 65;
+        public int pageSizeArtist = 42;
 
         public MusicController(IRepository repository)
         {
             _repository = repository;
         }
-        public ViewResult Artist(string category)
+        public ViewResult Artist(string category, int page = 1)
         {
             ArtistViewModels model = new ArtistViewModels();
             switch (category)
@@ -27,18 +27,42 @@ namespace RetroMusicSite.WebUI.Controllers
                 case "Русское":
                     model.Artists = _repository.Artists
                         .Where(p => p.LanguageArtistId == 0)
-                        .OrderBy(artist => artist.ArtistId);
+                        .OrderBy(artist => artist.ArtistId)
+                        .Skip((page - 1) * pageSizeArtist)
+                        .Take(pageSizeArtist);
                     model.CurrentCategory = 0;
+                    model.PagingInfo = new PagingInfo
+                    {
+                        CurrentPage = page,
+                        ItemsPerPage = pageSizeArtist,
+                        TotalItems = _repository.Artists.Count()
+                    };
                     break;
                 case "Зарубежное":
                     model.Artists = _repository.Artists
                         .Where(p => p.LanguageArtistId == 1)
-                        .OrderBy(artist => artist.ArtistId);
+                        .OrderBy(artist => artist.ArtistId) 
+                        .Skip((page - 1) * pageSizeArtist)
+                        .Take(pageSizeArtist);;
                     model.CurrentCategory = 1;
+                    model.PagingInfo = new PagingInfo
+                    {
+                        CurrentPage = page,
+                        ItemsPerPage = pageSizeArtist,
+                        TotalItems = _repository.Artists.Count()
+                    };
                     break;
                 default:
                     model.Artists = _repository.Artists
-                       .OrderBy(artist => artist.ArtistId);
+                       .OrderBy(artist => artist.ArtistId)
+                        .Skip((page - 1) * pageSizeArtist)
+                        .Take(pageSizeArtist);;
+                    model.PagingInfo = new PagingInfo
+                    {
+                        CurrentPage = page,
+                        ItemsPerPage = pageSizeArtist,
+                        TotalItems = _repository.Artists.Count()
+                    };
                     break;
             }
             return View(model);
@@ -63,7 +87,7 @@ namespace RetroMusicSite.WebUI.Controllers
             {
                 Audios = _repository.Audios
                  .Where(audio => audio.ArtistId == artistId)
-                
+
                 //    .Skip((page - 1) * pageSizeAudio)
                 //   .Take(pageSizeAudio),
                 //PagingInfo = new PagingInfo

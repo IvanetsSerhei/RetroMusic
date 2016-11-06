@@ -1,5 +1,6 @@
 ﻿@using RetroMusicSite.WebUI.Models
-@*@using RetroMusicSite.WebUI.HtmlHelpers*@
+@using RetroMusicSite.WebUI.HtmlHelpers
+
 @model  ArtistViewModels
 
 @{
@@ -30,23 +31,26 @@
         @foreach (var artist in @Model.Artists)
         {
             <li class="col-md-2">
-                <a href="@Url.Action("Audio", "Music", new { artist.ArtistId })">
+                <a href="@Url.Action("Audio", "Music", new {artist.ArtistId})">
                     @if (@artist.PhotoUrl == null)
                     {
-                        <img src="~/Content/none.jpg" />
+                        <img src="~/Content/none.jpg"/>
                     }
                     else
                     {
-                        <img src="@artist.PhotoUrl" />
+                        <img src="@artist.PhotoUrl"/>
 
                     }
                     <strong style="color: silver">@number</strong>
                     <strong style="margin-bottom: 40px;">@artist.Name</strong>
                     @{
-                         number++;
+                        number++;
                     }
                 </a>
             </li>
         }
     </ol>
 </div>
+<div class="btn-group pull-right">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("Artist", new { page = x }))
+    </div>

@@ -7,5 +7,6 @@ namespace RetroMusicSite.WebUI.Models
     {
         public IEnumerable<Artist> Artists { get; set; }
         public int CurrentCategory { get; set; }
+        public PagingInfo PagingInfo { get; set; }
     }
 }
