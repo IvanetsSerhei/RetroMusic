@@ -8,12 +8,13 @@ namespace RetroMusicSite.Domain.Entities
         public string Name { get; set; }
         public int AlbumVkId { get; set; }
         public ICollection<Audio> Audios { get; set; }
+        public string PhotoUrl { get; set; }
         public int LanguageArtistId { get; set; }
     }
 
     public enum LanguageArtist
     {
-        Russian,
-        Foreign
+        Русское,
+        Зарубежное
     }
 }

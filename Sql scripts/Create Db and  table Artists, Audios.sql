@@ -5,7 +5,8 @@ CREATE TABLE [dbo].[Artists]
 	[ArtistId] INT NOT NULL PRIMARY KEY IDENTITY,	
 	[Name] NVARCHAR(50) NOT NULL,
 	[AlbumVkId] INT NOT NULL,
-	[LanguageArtistId] INT NOT NULL
+	[LanguageArtistId] INT NOT NULL,
+	[PhotoUrl] VARCHAR(MAX) NOT NULL,
 )
 
 CREATE TABLE dbo.[Audios]
