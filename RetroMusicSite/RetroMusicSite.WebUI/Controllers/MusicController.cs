@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using RetroMusicSite.Domain.Abstract;
@@ -19,6 +18,7 @@ namespace RetroMusicSite.WebUI.Controllers
         {
             _repository = repository;
         }
+
         public ViewResult Artist(string category, int page = 1)
         {
             ArtistViewModels model = new ArtistViewModels();
