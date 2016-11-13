@@ -20,8 +20,13 @@ namespace RetroMusicSite.WebUI
             routes.MapRoute(
             name: "Default",
             url: "{category}/{page}",
-            defaults: new { controller = "Music", action = "Artist", 
-                category = "Все", page = 1},
+            defaults: new
+            {
+                controller = "Music",
+                action = "Artist",
+                category = "Все",
+                page = 1
+            },
             constraints: new { page = "\\d+" }
         );
 
